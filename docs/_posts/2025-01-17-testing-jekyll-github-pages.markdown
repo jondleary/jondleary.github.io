@@ -9,6 +9,14 @@ Test page for C/C++ code snippets.
 
 The below code is an example of how to use the RP2040 ADC to measure both the internal temperature sensor and vSYS.
 
+pico_stlib and hardware_adc must be added to the cmake file in order to use the adc.
+
+{% highlight cpp  %}
+target_link_libraries(... pico_stdlib hardware_adc)
+{% endhighlight %}
+
+Below is simple code to measure and write the results over serial UART/USB depending on your settings.
+
 {% highlight cpp linenos  %}
 #include <stdio.h>
 #include "pico/stdlib.h"
