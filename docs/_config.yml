@@ -31,6 +31,7 @@ github_username:  jondleary
 #theme: minima
 remote_theme: "mmistakes/jekyll-theme-basically-basic@1.4.5"
 
+search: true
 
 plugins:
   - jekyll-feed 
