@@ -54,3 +54,5 @@ int main()
     }
 }
 {% endhighlight %}
+
+![Image]({{"assets/images/rp2040.jpg",  | relative_url }})
