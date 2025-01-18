@@ -19,8 +19,13 @@ int main()
     stdio_init_all();
 
     gpio_init(29); //gpio_29 is connected to vSys
-    gpio_set_input_enabled(29, true); //enable input for gpio_29 to connect vsys to adc
-    gpio_set_pulls(29, false, false); //turn off pull-up/pull-down resistors. pull-down on by default gives 1.25V readings.
+
+    //enable input for gpio_29 to connect vsys to adc
+    gpio_set_input_enabled(29, true); 
+
+     //turn off pull-up/pull-down resistors. pull-down on by default gives 1.25V readings.
+    gpio_set_pulls(29, false, false);
+
     //configure ADC
     adc_init();
     adc_set_temp_sensor_enabled(true); // enable internal temp sensor on ADC channel 4. 
@@ -28,17 +33,23 @@ int main()
 
     while(1)
     {
-        adc_select_input(4); //select temp sx channel.
+        //select temp sx channel.
+        adc_select_input(4); 
         uint16_t raw = adc_read();
-        const float conversion = 3.3f / (1<<12); //conversion for 12bit number (max val 4096)
+        //conversion for 12bit number (max val 4096)
+        const float conversion = 3.3f / (1<<12); 
         float voltage = raw * conversion; 
-        float temperature = 27 - (voltage - 0.706)/0.001721; //voltage to temperature conversion formula from RP2040 datasheet
+        //voltage to temperature conversion formula from RP2040 datasheet
+        float temperature = 27 - (voltage - 0.706)/0.001721; 
         printf("Temperature: %f C\n", temperature);
         sleep_ms(500);
-        adc_select_input(3); //gpio_29/vSys is connected to ADC on channel 3.
+
+        //gpio_29/vSys is connected to ADC on channel 3.
+        adc_select_input(3); 
         uint16_t rawV = adc_read();
-        float v = rawV * conversion; //conversion for 12bit number (max val 4096)
-        float vSys = v * 3; //100k/200k resistor divider on input. multiply by 3.
+        float v = rawV * conversion; 
+        //100k/200k resistor divider on input. multiply by 3.
+        float vSys = v * 3; 
         printf("Vsys: %f V\n", vSys);
     }
 }
