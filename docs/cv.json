@@ -1,0 +1,92 @@
+{
+    "basics": {
+      "name": "Jonathan Leary",
+      "label": "Lead Wearable Test Engineer",
+      "picture": "https://example.com/photo.jpg",
+      "email": "jonathandavidleary@gmail.com",
+      "phone": "(858) 353-9906",
+      "website": "https://jondleary.github.io/",
+      "summary": "Test Engineer at Dexcom",
+      "location": {
+        "city": "San Diego",
+        "countryCode": "US",
+        "region": "California"
+      },
+      "profiles": [
+        {
+          "network": "LinkedIn",
+          "username": "#########",
+          "url": "https://www.linkedin.com/in/#########"
+        },
+        {
+          "network": "Twitter",
+          "username": "############",
+          "url": "https://twitter.com/##########"
+        }
+      ]
+    },
+    "work": [
+      {
+        "company": "Dexcom",
+        "position": "Dexcom: Mechanical Engineer II",
+        "startDate": "2016-04",
+        "endDate": "2025-02",
+        "summary": "Lead Wearable Test Engineer - R&D Test & Analysis.",
+        "highlights": [
+          "Example 1",
+          "Example 2",
+          "Example",
+          "Example",
+          "Example",
+          "Example",
+          "Example"
+  
+        ]
+      },
+      {
+        "company": "Fleet Fuel Testing",
+        "position": "Manufacturing Technician",
+        "startDate": "2014-07",
+        "endDate": "2016-03",
+        "summary": "Biofuel Test Kit manufacturing.",
+        "highlights": [
+          "Example",
+          "Example",
+          "Example"
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "name": "examples",
+        "keywords": [
+          "Keyword 1",
+          "Keyword 2"
+        ]
+      },
+      {
+        "name": "example 2",
+        "keywords": [
+          "Keyword 1",
+          "Keyword 2"
+        ]
+      }
+    ],
+    "interests": [
+      {
+        "keywords": [
+          "Electronics",
+          "Software/Firmware",
+          "3D-Printing",
+          "CAD",
+          "Open Source Hardware",
+          "DIY Guitar Pedals/Audio Effects"
+        ]
+      }
+    ],
+    "references": [
+      {
+        "reference": "Available upon request."
+      }
+    ]
+  }
