@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Testing Jekyll"
+title:  "Testing C/C++ Code Snippets, RP2040 Temp and Vsys Measurements"
 date:   2025-01-17 17:31:20 -0800
 categories: jekyll update
 ---
