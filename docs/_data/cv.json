@@ -4,7 +4,7 @@
     "label": "Lead Wearable Test Engineer",
     "picture": "https://example.com/photo.jpg",
     "email": "jonathandavidleary@gmail.com",
-    "phone": "(858) 353-9906",
+    "phone": "(858) ###-####",
     "website": "https://jondleary.github.io/",
     "summary": "Lead Wearable Test Engineer at Dexcom for Next Generation Wearable CGM medical devices. Specializing in practical hands-on cross-disciplinary engineering, root-cause analysis and debugging, test method and equipment develepment, and cross-functinonal teamwork.",
     "location": {
@@ -50,12 +50,13 @@
         "Measurement routines and fixtures",
         "Instron method and fixture development, including advanced uses of strain input to capture dynamic analog electrical data from DUT, and Digital I/O to trigger and sync external measurement equipment such as DMM, Oscilloscope, or SMU during compression/tensile/shear testing.",
         "Highly skilled with use of optical microscopes and physical tools such as scalpels, tweezers, soldering irons, hot-plates, alongside CAD/CAM systems such as bench-top milling machines, 3D-printing, automated epoxy and adhesive dispensing equipment, to dissect and debug devices, prepare novel device configurations for test, and enable rapid prototyping of small electro-mechanical devices.",
-        "Use of embedded systems to enable high-n testing with limited expenditure, e.g. recording data to SD card from many sensors on a shared I2C or SPI bus, logging current, voltage, temperature, humidity through various environmental conditions. Development of a small form-factor multi-sensor BLE enabled PCBA to measure temperature, ambient pressure, humidity, condensation droplet formation inside a thumbnail sized enclosure."
+        "Use of embedded systems to enable high-n testing with limited expenditure, e.g. recording data to SD card from many sensors on a shared I2C or SPI bus, logging current, voltage, temperature, humidity through various environmental conditions. Development of a small form-factor multi-sensor BLE enabled PCBA to measure temperature, ambient pressure, humidity, condensation droplet formation inside a thumbnail sized enclosure.",
+        "Developed POC for MongoDB database integration into test flow and equipment such as LabView test beds, custom windows software, to demonstrate benefits of centralized data storage and access across R&D test teams, enable dashboarding and automated reporting and documentation on platforms such as Confluence."
       ]
     },
     {
       "company": "Fleet Fuel Testing",
-      "position": "Manufacturing Technician",
+      "position": "Fleet Fuel Testing: Manufacturing Technician",
       "startDate": "2014-07",
       "endDate": "2016-03",
       "website": "https://www.fleetfueltesting.com/",
@@ -68,18 +69,32 @@
     }
   ],
   "skills": [
-    {
-      "name": "examples",
+        {
+      "name": "CAD/CAM",
       "keywords": [
-        "Keyword 1",
-        "Keyword 2"
+        "Solidworks, Onshape, MeshCam, Carbide3D" 
       ]
     },
     {
-      "name": "example 2",
+      "name": "Programming",
       "keywords": [
-        "Keyword 1",
-        "Keyword 2"
+        "C#: Windows development for custom test and equipment software, NFC/Serial/RS232 communication, SQL/MongoDB databases, .csv/.xlsx, JMP API for Statistics, O.C.R for report scanning and digitization, etc...",
+        "C/C++ for embedded applications", "basic Python scripting", "Matlab", "JSL", "VBA(Excel)"
+      ]
+    },
+
+        {
+      "name": "Electronics",
+      "keywords": [
+        "Schematics/PCB Layout: Eagle, KiCad", 
+        "Soldering: hand, air, hotplate, SMD 0201/QFN/BGA etc."
+      ]
+    },
+            {
+      "name": "Rapid Prototyping",
+      "keywords": [
+        "3D-Printing: FDM: Bambu Labs, MarkForged, Creality. Resin: Stratasys, FormLabs, Elegoo, Anycubic",
+        "CNC Mill, Laser-Cutter, General machine shop equipment."
       ]
     }
   ],
