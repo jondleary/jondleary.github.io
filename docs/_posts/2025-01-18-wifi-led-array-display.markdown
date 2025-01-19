@@ -32,5 +32,19 @@ Some secondary reasons are:
 3. Prototype: Make an initial minimum viable prototype to use for POC testing and feed back into the specifications.  
 4. Design: Take learnings from prototype stage and do the HW/FW development to create a full device.
 5. Test: Test the device to identify issues and ensure that it meets the specifications.
-6. Iterate: Repeat steps 4 and 5 until satisfied. (This is a one off device so no need for DFM/scalability etc. beyond that needed to produce a working and cosmetically acceptable device.)
+6. Iterate: Repeat steps 5 and 6 until satisfied. (This is a one off device so no need for DFM/scalability etc. beyond that needed to produce a working and cosmetically acceptable device.)
 
+## Getting started: The LED Array
+
+How does the LED array work? What can it do? How is it it controlled?  
+  
+The LED array contains 256 5x5mm WS2812B LEDs in an array of 8 rows and 32 columns. 
+The LEDs are evenly spaced at 10mm intervals and the full array, including the substrate, measures 320mm x 80mm.  
+There are three input wires, two for a 5VDC connection and one for Data input. A further three wires provide outputs for daisy-chaining additional arrays.   
+   
+The WS2812B LEDs are individually addressable and each contain an integrated control circuit. This control circuit can control the brightness and R,G,B colour of the light. They are very common due to their low cost, ease of use, and community and library support.
+
+If all you are interested in is a WiFi controlled LED array with built in lighting effects, timers, smartphone app and no specific software control over the lights, look up [WLED](https://kno.wled.ge/).
+
+What does this mean for the display?  
+Individual control of each LED brightness and colour enables ability to create indicator lights, bar chart like features, animations etc. that can be used to create a display.
