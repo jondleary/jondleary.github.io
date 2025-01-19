@@ -1,92 +1,103 @@
 {
-    "basics": {
-      "name": "Jonathan Leary",
-      "label": "Lead Wearable Test Engineer",
-      "picture": "https://example.com/photo.jpg",
-      "email": "jonathandavidleary@gmail.com",
-      "phone": "(858) 353-9906",
-      "website": "https://jondleary.github.io/",
-      "summary": "Test Engineer at Dexcom",
-      "location": {
-        "city": "San Diego",
-        "countryCode": "US",
-        "region": "California"
-      },
-      "profiles": [
-        {
-          "network": "LinkedIn",
-          "username": "#########",
-          "url": "https://www.linkedin.com/in/#########"
-        },
-        {
-          "network": "Twitter",
-          "username": "############",
-          "url": "https://twitter.com/##########"
-        }
-      ]
+  "basics": {
+    "name": "Jonathan Leary",
+    "label": "Lead Wearable Test Engineer",
+    "picture": "https://example.com/photo.jpg",
+    "email": "jonathandavidleary@gmail.com",
+    "phone": "(858) 353-9906",
+    "website": "https://jondleary.github.io/",
+    "summary": "Lead Wearable Test Engineer at Dexcom for Next Generation Wearable CGM medical devices. Specializing in practical hands-on cross-disciplinary engineering, root-cause analysis and debugging, test method and equipment develepment, and cross-functinonal teamwork.",
+    "location": {
+      "city": "San Diego",
+      "countryCode": "US",
+      "region": "California"
     },
-    "work": [
+    "profiles": [
       {
-        "company": "Dexcom",
-        "position": "Dexcom: Mechanical Engineer II",
-        "startDate": "2016-04",
-        "endDate": "2025-02",
-        "summary": "Lead Wearable Test Engineer - R&D Test & Analysis.",
-        "highlights": [
-          "Example 1",
-          "Example 2",
-          "Example",
-          "Example",
-          "Example",
-          "Example",
-          "Example"
-  
-        ]
+        "network": "LinkedIn",
+        "username": "#########",
+        "url": "https://www.linkedin.com/in/#########"
+      },
+            {
+        "network": "Github",
+        "username": "jondleary.github.io",
+        "url": "https://jondleary.github.io/"
       },
       {
-        "company": "Fleet Fuel Testing",
-        "position": "Manufacturing Technician",
-        "startDate": "2014-07",
-        "endDate": "2016-03",
-        "summary": "Biofuel Test Kit manufacturing.",
-        "highlights": [
-          "Example",
-          "Example",
-          "Example"
-        ]
-      }
-    ],
-    "skills": [
-      {
-        "name": "examples",
-        "keywords": [
-          "Keyword 1",
-          "Keyword 2"
-        ]
-      },
-      {
-        "name": "example 2",
-        "keywords": [
-          "Keyword 1",
-          "Keyword 2"
-        ]
-      }
-    ],
-    "interests": [
-      {
-        "keywords": [
-          "Electronics",
-          "Software/Firmware",
-          "3D-Printing",
-          "CAD",
-          "Open Source Hardware",
-          "DIY Guitar Pedals/Audio Effects"
-        ]
-      }
-    ],
-    "references": [
-      {
-        "reference": "Available upon request."
+        "network": "GitHub",
+        "username": "jondleary",
+        "url": "https://github.com/jondleary"
       }
     ]
-  }
+  },
+  "work": [
+    {
+      "company": "Dexcom",
+      "position": "Dexcom: Mechanical Engineer II",
+      "startDate": "2016-04",
+      "endDate": "2025-02",
+      "website": "https://www.dexcom.com/",
+      "summary": "Lead Wearable Test Engineer - R&D Test & Analysis.",
+      "highlights": [
+        "Led testing of Dexcom's next generation wearable platform from POC to V&V handover.",
+        "Led small team using NUD/ECO and risk-based approach to prioritize and execute characterization, cliff, and reliability testing at component and system level.",
+        "Test planning, p-diagrams, risk register, documentation etc.",
+        "Developed tests...",
+        "Developed equipment...",
+        "Electro-mechanical debugging of complex wearable systems. Worked as part of several mission-critical 'Tiger Teams' to find and prove root cause on issues such as Environmental Stress Cracking, Adhesive Delamination, Rapid Voltage Decline/Brown-outs, Battery Electrolyte leakage, and other product performance related issues.",
+        "Developed Windows software for NFC communication and test specimen preparation and tracking, DUT data parsing and automated analysis using SAS JMP API including normalization and filtering, chart generation, distributions, T-tests, etc.",
+        "Developed novel methods and semi-automated equipment for attaching 0402 passive SMD components to end of 0.25mm dia. coax wire to emulate specific test loads, without the use of solder or significant thermal exposure. ",
+        "Measurement routines and fixtures",
+        "Instron method and fixture development, including advanced uses of strain input to capture dynamic analog electrical data from DUT, and Digital I/O to trigger and sync external measurement equipment such as DMM, Oscilloscope, or SMU during compression/tensile/shear testing.",
+        "Highly skilled with use of optical microscopes and physical tools such as scalpels, tweezers, soldering irons, hot-plates, alongside CAD/CAM systems such as bench-top milling machines, 3D-printing, automated epoxy and adhesive dispensing equipment, to dissect and debug devices, prepare novel device configurations for test, and enable rapid prototyping of small electro-mechanical devices.",
+        "Use of embedded systems to enable high-n testing with limited expenditure, e.g. recording data to SD card from many sensors on a shared I2C or SPI bus, logging current, voltage, temperature, humidity through various environmental conditions. Development of a small form-factor multi-sensor BLE enabled PCBA to measure temperature, ambient pressure, humidity, condensation droplet formation inside a thumbnail sized enclosure."
+      ]
+    },
+    {
+      "company": "Fleet Fuel Testing",
+      "position": "Manufacturing Technician",
+      "startDate": "2014-07",
+      "endDate": "2016-03",
+      "website": "https://www.fleetfueltesting.com/",
+      "summary": "Biofuel Test Kit manufacturing.",
+      "highlights": [
+        "Manufacturing of test kits for visible clarity, entrained water, and microbial contamination of biofuels.",
+        "Developed fixturing to improve lot size, yield, and reduction of RSI risk.",
+        "Increased efficiency of manufacturing processes through implementation of sub-assembly batch processing and improved organization of material inputs and outputs."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "examples",
+      "keywords": [
+        "Keyword 1",
+        "Keyword 2"
+      ]
+    },
+    {
+      "name": "example 2",
+      "keywords": [
+        "Keyword 1",
+        "Keyword 2"
+      ]
+    }
+  ],
+  "interests": [
+    {
+      "keywords": [
+        "Electronics",
+        "Software/Firmware",
+        "3D-Printing",
+        "CAD",
+        "Open Source Hardware",
+        "DIY Guitar Pedals/Audio Effects"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "reference": "Available upon request."
+    }
+  ]
+}
