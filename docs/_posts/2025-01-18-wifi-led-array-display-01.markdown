@@ -99,10 +99,13 @@ With the basic requirements and an idea of some of the ways in which the LED arr
 The display is broken up into sections:  
   
 1. Hourly temperature over 24 columns, one for each hour of the day:  
-![Image]({{"assets/images/led-weather/layout-temp-01.jpg",  | relative_url }})    
+![Image]({{"assets/images/led-weather/layout/layout-temp-01.jpg",  | relative_url }})   
+   
 2. Hourly precipitation over 24 individual LEDs:  
-![Image]({{"assets/images/led-weather/layout-rain-01.jpg",  | relative_url }})    
+![Image]({{"assets/images/led-weather/layout/layout-rain-01.jpg",  | relative_url }})   
+   
 3. Weather Alert indicators on individual LEDs:  
-![Image]({{"assets/images/led-weather/layout-indicators-01.jpg",  | relative_url }})    
+![Image]({{"assets/images/led-weather/layout/layout-indicators-01.jpg",  | relative_url }})
+     
 4. Individual columns for current relative humidity, wind speed & air quality index (AQI):  
-![Image]({{"assets/images/led-weather/layout-humid-01.jpg",  | relative_url }})     
+![Image]({{"assets/images/led-weather/layout/layout-humid-01.jpg",  | relative_url }})     
