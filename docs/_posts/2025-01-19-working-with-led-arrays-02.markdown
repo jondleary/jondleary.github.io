@@ -28,12 +28,12 @@ The data is transmitted at a speed of 800Kbps and the value of individual bits a
 
 The data is sent in 24bit packets for each LED. Each packet of 24bits is read in a cascading manner down the strip until no more packets are left, with the first 24bit value controlling the first LED, the second 24 bit value controlling the second LED and so on.  
 
-![Image]({{"assets/images/led-weather/ws2812b-timing-chart.jpg",  | relative_url }})   
+![Image]({{"assets/images/led-weather/WS2812B/ws2812b-timing-chart.jpg",  | relative_url }})   
   
   
-![Image]({{"assets/images/led-weather/ws2812b-timing-diagram.jpg",  | relative_url }})   
+![Image]({{"assets/images/led-weather/WS2812B/ws2812b-timing-diagram.jpg",  | relative_url }})   
   
 As data must be sent for all LEDs in the chain up to the target device the more LEDs in that chain the longer it will take to refresh the data. For a small array and a low data refresh rate this will not be an issue.
 
 The 24bit packets are split into three MSB 8bit numbers. These numbers represent the requested colour value in the following order Green, Red, Blue. The data must be sent with the highest bit first.  
-![Image]({{"assets/images/led-weather/ws2812b-data-format.jpg",  | relative_url }})   
+![Image]({{"assets/images/led-weather/WS2812B/ws2812b-data-format.jpg",  | relative_url }})   
