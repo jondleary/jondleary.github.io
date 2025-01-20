@@ -34,6 +34,8 @@ Some secondary reasons are:
 5. Test: Test the device to identify issues and ensure that it meets the specifications.
 6. Iterate: Repeat steps 5 and 6 until satisfied. (This is a one-off device so no need for DFM/scalability etc. beyond that needed to produce a functional and cosmetically acceptable device.)
 
+
+
 ## Getting started: The LED Array
 
 How does the LED array work? What can it do? How is it it controlled?  
@@ -41,14 +43,31 @@ How does the LED array work? What can it do? How is it it controlled?
 The LED array contains 256 5x5mm WS2812B LEDs in an array of 8 rows and 32 columns. 
 The LEDs are evenly spaced at 10mm intervals and the full array, including the substrate, measures 320mm x 80mm.  
 There are three input wires, two for a 5VDC connection and one for Data input. A further three wires provide outputs for daisy-chaining additional arrays.   
-   
-The WS2812B LEDs are individually addressable and each contain an integrated control circuit. This control circuit can control the brightness and R,G,B colour of the light. They are very common due to their low cost, ease of use, and community and library support.
-
-If all you are interested in is a WiFi controlled LED array with built in lighting effects, timers, smartphone app and no specific software control over the lights, look up [WLED](https://kno.wled.ge/).
-
+    
+The WS2812B LEDs are individually addressable and each contain an integrated control circuit. This control circuit can control the brightness and R,G,B colour of the light. They are very common due to their low cost, ease of use, and community and library support.  
+  
+If all you are interested in is a WiFi controlled LED array with built in lighting effects, timers, smartphone app and no specific software control over the lights, look up [WLED](https://kno.wled.ge/).  
+  
 What does this mean for the display?  
-Individual control of each LED brightness and colour enables ability to create indicator lights, bar chart like features, animations etc. that can be used to create a display.
-
+Individual control of each LED brightness and colour enables ability to create indicator lights, bar chart like features, animations etc. that can be used to create a display.  
+  
+## Display features:  
+  
+### Bar charts  
+Individual columns of LEDs can be used to create a display analogous to a bar chart:  
+![Image]({{"assets/images/led-weather/led-barchart-example.jpg",  | relative_url }})  
+Varying the colour and brightness of the bars can add further information to each bar.  
+For example the sunset/sunrise day/night transitions could be indicated by the base colour of the bars like so:  
+![Image]({{"assets/images/led-weather/led-barchart-day-night-example.jpg",  | relative_url }})
+The height of the bar charts could indicate a value, such as temperature. Above or below a certain threshold temperature the colour could change in hue or brightness to indicate freezing for example.  
+  
+### Other features
+Individual LEDs can be used as indicator lights. Hue, brightness and flashing could add further information helping to condense what may be a vertical column of LEDs to an individual light.  
+Eg. for Warnings:  
+![Image]({{"assets/images/led-weather/led-indicator-example.jpg",  | relative_url }})  
+Individual Brightness showing  magnitude of precipitation probability:  
+![Image]({{"assets/images/led-weather/led-brightness-rain-example.jpg",  | relative_url }})  
+  
 ## Defining Requirements  
   
 As this is a one-off device and the possibilities are constrained by the requirement of using the already purchased LED array the requirements can be kept simple. 
@@ -66,5 +85,4 @@ As this is a one-off device and the possibilities are constrained by the require
 6. The device enclosure should be 3D-printable.
 7. Any screws used shall be common Metric screws, preferably M3.
 8. Any APIs used to collect the weather data should be free and open and not require and account.
-
 
