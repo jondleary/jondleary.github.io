@@ -56,15 +56,19 @@ Individual control of each LED brightness and colour enables ability to create i
 ### Bar charts  
 Individual columns of LEDs can be used to create a display analogous to a bar chart:  
 ![Image]({{"assets/images/led-weather/led-barchart-example.jpg",  | relative_url }})  
+  
 Varying the colour and brightness of the bars can add further information to each bar.  
 For example the sunset/sunrise day/night transitions could be indicated by the base colour of the bars like so:  
-![Image]({{"assets/images/led-weather/led-barchart-day-night-example.jpg",  | relative_url }})
+![Image]({{"assets/images/led-weather/led-barchart-day-night-example.jpg",  | relative_url }})  
+  
 The height of the bar charts could indicate a value, such as temperature. Above or below a certain threshold temperature the colour could change in hue or brightness to indicate freezing for example.  
   
 ### Other features
-Individual LEDs can be used as indicator lights. Hue, brightness and flashing could add further information helping to condense what may be a vertical column of LEDs to an individual light.  
+Individual LEDs can be used as indicator lights. Hue, brightness and flashing could add further information helping to condense what may be a vertical column of LEDs to an individual light.
+    
 Eg. for Warnings:  
 ![Image]({{"assets/images/led-weather/led-indicator-example.jpg",  | relative_url }})  
+  
 Individual Brightness showing  magnitude of precipitation probability:  
 ![Image]({{"assets/images/led-weather/led-brightness-rain-example.jpg",  | relative_url }})  
   
