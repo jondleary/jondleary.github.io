@@ -10,7 +10,7 @@ This is the first post in a series documenting the development of a WiFi enabled
 ## What is an LED Array?  
   
 The LED array I will be using is a commonly available array of WS2812B programmable RGB LEDs on a flexible PCB substrate. The array in question is 8x32 LEDs (Amazon PN ASIN:B01DC0IPVU). Other sizes are available.  
-Here is the link used to purchase it: https://www.amazon.com/BTF-LIGHTING-0-24ft0-96ft-Flexible-Individually-addressable/dp/B01DC0IPVU  
+Here is the link used to purchase it: [https://www.amazon.com/BTF-LIGHTING-0-24ft0-96ft-Flexible-Individually-addressable/dp/B01DC0IPVU](https://www.amazon.com/BTF-LIGHTING-0-24ft0-96ft-Flexible-Individually-addressable/dp/B01DC0IPVU)
   
 ![Image]({{"assets/images/led-weather/8x32-led-array.jpg",  | relative_url }})  
   
@@ -32,7 +32,7 @@ Some secondary reasons are:
 3. Prototype: Make an initial minimum viable prototype to use for POC testing and feed back into the specifications.  
 4. Design: Take learnings from prototype stage and do the HW/FW development to create a full device.
 5. Test: Test the device to identify issues and ensure that it meets the specifications.
-6. Iterate: Repeat steps 5 and 6 until satisfied. (This is a one off device so no need for DFM/scalability etc. beyond that needed to produce a working and cosmetically acceptable device.)
+6. Iterate: Repeat steps 5 and 6 until satisfied. (This is a one-off device so no need for DFM/scalability etc. beyond that needed to produce a functional and cosmetically acceptable device.)
 
 ## Getting started: The LED Array
 
@@ -48,3 +48,23 @@ If all you are interested in is a WiFi controlled LED array with built in lighti
 
 What does this mean for the display?  
 Individual control of each LED brightness and colour enables ability to create indicator lights, bar chart like features, animations etc. that can be used to create a display.
+
+## Defining Requirements  
+  
+As this is a one-off device and the possibilities are constrained by the requirement of using the already purchased LED array the requirements can be kept simple. 
+
+1. The device shall display:
+    1. Hourly weather for the current 24 hour period (midnight->midnight).
+    2. Hourly precipitation probability for the same period.
+    3. Current Humidity.
+    4. Current Air Quality.
+    5. Regional Weather Alerts such as Red Flag Warnings, High Wind warnings etc.
+2. The finished device needs to be connected to WiFi to access the data to drive the display.
+3. The device shall be powered over USB from a standard charging block, if the current draw allows for it.
+4. The device shall have a diffuser for the LEDs. 
+5. The diffuser may contain text or images to label the indicators.
+6. The device enclosure should be 3D-printable.
+7. Any screws used shall be common Metric screws, preferably M3.
+8. Any APIs used to collect the weather data should be free and open and not require and account.
+
+
