@@ -5,11 +5,11 @@ date:   2025-01-19 17:30:00 -0800
 categories: LED Display
 ---
   
-Part 2 of [Designing an WiFi enabled LED Array Weather Display](https://jondleary.github.io/led/display/2025/01/19/wifi-led-array-display-01.html).  
+Part 2 of [Designing a WiFi enabled LED Array Weather Display](https://jondleary.github.io/led/display/2025/01/19/wifi-led-array-display-01.html).  
   
 ## Choosing an MCU  
   
-As the display will require internet access to collect the weather data an MCU with WiFi capability must be selected. For support and ease of programming either an ESP32 or ESP8266 will be used, or alternatively a RP2040-W or analogous device could be used.   
+As the display will require internet access to collect the weather data an MCU with WiFi capability must be selected. For wide ranging support and ease of programming either an ESP32 or ESP8266 will be used, or alternatively a RP2040-W or analogous device could be used.   
   
 ## Sending data to the LEDs  
    

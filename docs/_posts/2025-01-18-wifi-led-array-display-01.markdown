@@ -109,3 +109,6 @@ The display is broken up into sections:
      
 4. Individual columns for current relative humidity, wind speed & air quality index (AQI):  
 ![Image]({{"assets/images/led-weather/layout/layout-humid-01.jpg",  | relative_url }})     
+  
+   
+Part 2: [Working with the WS2812B LED Array ](https://jondleary.github.io/led/display/2025/01/20/working-with-led-arrays-02.html).
