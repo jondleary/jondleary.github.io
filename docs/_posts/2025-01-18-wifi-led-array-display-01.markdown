@@ -85,4 +85,20 @@ As this is a one-off device and the possibilities are constrained by the require
 6. The device enclosure should be 3D-printable.
 7. Any screws used shall be common Metric screws, preferably M3.
 8. Any APIs used to collect the weather data should be free and open and not require and account.
-
+  
+## An initial display concept.  
+ 
+With the basic requirements and an idea of some of the ways in which the LED array might be used to display information an initial layout concept for the display can be made:
+  
+![Image]({{"assets/images/led-weather/led-display-layout-concept-01.jpg",  | relative_url }})    
+  
+The display is broken up into sections:  
+  
+1. Hourly temperature over 24 columns, one for each hour of the day:  
+![Image]({{"assets/images/led-weather/layout-temp-01.jpg",  | relative_url }})    
+2. Hourly precipitation over 24 individual LEDs:  
+![Image]({{"assets/images/led-weather/layout-rain-01.jpg",  | relative_url }})    
+3. Weather Alert indicators on individual LEDs:  
+![Image]({{"assets/images/led-weather/layout-indicators-01.jpg",  | relative_url }})    
+4. Individual columns for current relative humidity, wind speed & air quality index (AQI):  
+![Image]({{"assets/images/led-weather/layout-humid-01.jpg",  | relative_url }})     
