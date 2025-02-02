@@ -21,7 +21,7 @@ The following steps will be required to complete this project:
 The mmWave radar sensor module used will be an HLK-LD2401C. This module has a digital output which goes high when a person is detected. The module has bluetooth capability to enable configuration from a smartphone app. A UART port also provides access to configure the device settings. Bluetooth configuration will not be used. (The app and instructions are in Chinese.)
 UART will be used to disable the bluetooth for security and power saving reasons. The module will be connected to a network enabled MCU to allow connection to home assistant.  
   
-![Image]({{"assets\images\mmWave\HLK-LD2401.jpg",  | relative_url }})   
+![Image]({{"/assets/images/mmWave/HLK-LD2401.jpg",  | relative_url }})   
   
 ## Choosing an MCU  
   
@@ -39,7 +39,7 @@ https://naylampmechatronics.com/img/cms/001080/Protocolo_comunicacion_serial_LD2
 
 Before implementing a library to handle the communication with the LD2401C, I will test the Serial port of the ESP32 module using the Rigol DS1054Z Oscilloscope. This will verify that the device programming from Platform IO is working, and the oscilloscopes decode function can accurately provide a display of the information sent, and later received, to aid with  the implementation of the UART protocol for the LD2401C.  
   
-In order to test the UART transmit ouput and verify the scopes decode function the following simple code was written using UART 2 of the ESP32. The code establishes UART on UART 2, sets the baud-rate, parity and stop-bits, along with the GPIO to be used for RX and TX and transmits ASCII "Hello" once per second.       
+In order to test the UART transmit output and verify the scopes decode function the following simple code was written using UART 2 of the ESP32. The code establishes UART on UART 2, sets the baud-rate, parity and stop-bits, along with the GPIO to be used for RX and TX and transmits ASCII "Hello" once per second.       
   
 {% highlight cpp %}
 #define RX 16
