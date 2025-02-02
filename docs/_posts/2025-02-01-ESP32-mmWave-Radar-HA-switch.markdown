@@ -98,6 +98,5 @@ After uploading the code the onboard LED lit up. Walking >6ft away from the modu
 INSERT IMAGE OF CONNECTION HERE.  
 
 Per the LD2401C Serial Communication Protocol document the default settings are:  
-![Image]({{"assets/images/mmWave/LD2401-factory-default-settings.jpg,  | relative_url }})  
-  
+![Image]({{"assets/images/mmWave/LD2401-factory-default-settings.jpg",  | relative_url }})  
   
