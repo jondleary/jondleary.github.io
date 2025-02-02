@@ -6,8 +6,17 @@ categories: mmWave Radar
 ---
 
 # Goal  
-Design a network attached mmWave radar switch for use with Home Assistant. The switch will be used to detect human presence and turn on one or more lights.
-
+Design a network attached mmWave radar switch for use with Home Assistant. The switch will be used to detect human presence and turn on one or more lights.  
+  
+The following steps will be required to complete this project:  
+ - Test the Radar module.  
+ - Implement the UART communication protocol to enable configuration of the module.  
+ - Write FW for the ESP32 to communicate with the radar module and over the local network to home assistant via a MQTT or a similar protocol.  
+ - Design a Radome and mechanical enclosure for the Radar module and MCU, including provision for wall mounting.
+ - Fabricate and assemble the enclosure and device.
+ - Implement the completed network device in Home Assistant.
+  
+  
 ## The Radar  
 The mmWave radar sensor module used will be an HLK-LD2401C. This module has a digital output which goes high when a person is detected. The module has bluetooth capability to enable configuration from a smartphone app. A UART port also provides access to configure the device settings. Bluetooth configuration will not be used. (The app and instructions are in Chinese.)
 UART will be used to disable the bluetooth for security and power saving reasons. The module will be connected to a network enabled MCU to allow connection to home assistant.  
