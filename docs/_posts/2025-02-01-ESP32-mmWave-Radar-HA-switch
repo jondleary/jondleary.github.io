@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "Designing an IOT mmWave Radar switch for use with Home Assistant"
+date:   2025-02-01 17:35:00 -0800
+categories: mmWave Radar
+---
+
+# Goal  
+Design a network attached mmWave radar switch for use with Home Assistant. The switch will be used to detect human presence and turn on one or more lights.
+
+## The Radar  
+The mmWave radar sensor module used will be an HLK-LD2401C. This module has a digital output which goes high when a person is detected. The module has bluetooth capability to enable configuration from a smartphone app. A UART port also provides access to configure the device settings. Bluetooth configuration will not be used. (The app and instructions are in Chinese.)
+UART will be used to disable the bluetooth for security and power saving reasons. The module will be connected to a network enabled MCU to allow connection to home assistant.  
+  
+![Image]({{"assets\images\mmWave\HLK-LD2401.jpg",  | relative_url }})   
+  
+## Choosing an MCU  
+  
+As the sensor will require network access to interface with Home Assistant an MCU with WiFi capability will be selected. For wide ranging support and ease of programming either an ESP32 or ESP8266 will be used, or alternatively a RP2040-W or analogous device could be used.  
+In this case I used an ESP32, specifically an ESP32-DEVKIT-V1 with an ESP32-WROOM-32 module. This was chosen for its low cost and high availability (i.e. I already had one in my draw).  
+  
+## Programming the ESP32  
+   
+The ESP32 will be programmed using Platform IO. Platform IO is a Visual Studio Code extension that allows programming of many varieties microcontroller, along with the benefits of Visual Studio Code's GitHub integration and large collection of extensions.
+
+## UART Communication Protocol  
+  
+The UART protocol for the mmWave radar is defined in the document: 
+https://naylampmechatronics.com/img/cms/001080/Protocolo_comunicacion_serial_LD2410C.pdf  
+
+Before implementing a library to handle the communication with the LD2401C, I will test the Serial port of the ESP32 module using the Rigol DS1054Z Oscilloscope. This will verify that the device programming from Platform IO is working, and the oscilloscopes decode function can accurately provide a display of the information sent, and later received, to aid with  the implementation of the UART protocol for the LD2401C.  
+  
+In order to test the UART transmit ouput and verify the scopes decode function the following simple code was written using UART 2 of the ESP32. The code establishes UART on UART 2, sets the baud-rate, parity and stop-bits, along with the GPIO to be used for RX and TX and transmits ASCII "Hello" once per second.       
+  
+{% highlight cpp %}
+#define RX 16
+#define TX 17
+
+#define UART_BAUD 9600
+
+// Create an instance of the HardwareSerial class for Serial 2
+HardwareSerial HLK_UART(2);
+
+void setup() {
+  HLK_UART.begin(UART_BAUD, SERIAL_8N1, RX, TX);
+}
+
+void loop() {
+  HLK_UART.println("Hello");
+  delay(1000);
+}
+{% endhighlight %}
+
+The oscilloscope is set to RS232 decode under the "Math" menu with settings matching those in set in the FW enabling "Hello" to be read:  
+![Image]({{"assets/images/mmWave/DS1Z-UART-Hello-Decode.png",  | relative_url }})   
+Using the Event Table allows for display of more bytes:  
+![Image]({{"assets/images/mmWave/DS1Z-UART-Hello-Event-Table.png",  | relative_url }})  
+  
+This confirms that the UART transmits successfully and the decode function is working. Implementation of the LD2401C UART protocol will be done after testing the module is functional.  
+  
+## Testing the LD2401C mmWave Radar Module  
+
