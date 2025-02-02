@@ -62,6 +62,7 @@ void loop() {
 
 The oscilloscope is set to RS232 decode under the "Math" menu with settings matching those in set in the FW enabling "Hello" to be read:  
 ![Image]({{"assets/images/mmWave/DS1Z-UART-Hello-Decode.png",  | relative_url }})   
+  
 Using the Event Table allows for display of more bytes:  
 ![Image]({{"assets/images/mmWave/DS1Z-UART-Hello-Event-Table.png",  | relative_url }})  
   
@@ -69,3 +70,34 @@ This confirms that the UART transmits successfully and the decode function is wo
   
 ## Testing the LD2401C mmWave Radar Module  
 
+In order to test the LD2401C mmWave radar is functional the digital output was connected to the ESP32 GPIO13 pin. The LD2401C was powered from 5V supplied by the USB connection for the ESP32, accessible via the Vin pin on the dev kit.   
+  
+Some simple code was written to turn on the Dev Kit's on board LED when GPIO5 reads a high output from the LD2401. In this way the functionality in the basic factory settings could be tested to confirm the module is working prior to proceeding further.  
+  
+{% highlight cpp %}
+#define LD2401_OUTPUT 13
+
+#define LED_ON digitalWrite(LED_BUILTIN, HIGH)
+#define LED_OFF digitalWrite(LED_BUILTIN, LOW)
+
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LD2401_OUTPUT, INPUT);
+}
+
+void loop() {
+  if(digitalRead(LD2401_OUTPUT) == HIGH)
+    LED_ON;
+  else
+    LED_OFF;
+}
+{% endhighlight %}  
+
+After uploading the code the onboard LED lit up. Walking >6ft away from the module and waiting for the default "no man duration" to occur, the LED switched off.  
+
+INSERT IMAGE OF CONNECTION HERE.  
+
+Per the LD2401C Serial Communication Protocol document the default settings are:  
+![Image]({{"assets/images/mmWave/LD2401-factory-default-settings.jpg,  | relative_url }})  
+  
+  
