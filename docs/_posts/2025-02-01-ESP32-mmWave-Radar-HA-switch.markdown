@@ -96,7 +96,134 @@ void loop() {
 After uploading the code the onboard LED lit up. Walking >6ft away from the module and waiting for the default "no man duration" to occur, the LED switched off.  
 
 INSERT IMAGE OF CONNECTION HERE.  
-
-Per the LD2401C Serial Communication Protocol document the default settings are:  
+  
+The "no man duration" is the duration between when the radar no longer detects a human presence and the OUT pin goes low again. Per the LD2401C Serial Communication Protocol document the default settings are:  
 ![Image]({{"assets/images/mmWave/LD2401-factory-default-settings.jpg",  | relative_url }})  
   
+## Making a library in Platform IO    
+  
+For libraries to compile and be included in the build using Platform IO, the source code of each library should be placed in its own separate directory
+("lib/your_library_name/[here are source files]").  
+In this case the following structure was used:  
+|--lib  
+|--|--HLK-LD2401C-UART  
+|--|--|--HlkUartLd2401.h  
+|--|--|--HlkUartLd2401.cpp  
+  
+A much simplified version of a library was created in order to confirm the structure was correct, it could be successfully built, and the serial communication was working. The library takes a HardwareSerial instance and transmits "LD2401".  
+
+The .h file was as follows:  
+{% highlight cpp %}
+#ifndef HlkUartLd2401_H
+#define HlkUartLd2401_H
+
+#include "Arduino.h"
+
+#include <stdint.h>
+#include <stdlib.h>
+
+#define DEFAULT_BAUD  9600
+
+class HlkUartLd2401 {
+    public:
+        HlkUartLd2401();
+
+        void begin(HardwareSerial& serial);
+
+        int16_t transmit();
+    
+    private:
+    HardwareSerial* _serial = nullptr;
+};
+
+#endif
+{% endhighlight %} 
+  
+The .cpp file was as follows:  
+{% highlight cpp %}
+#include "Arduino.h"  
+#include "HlkUartLd2401.h"
+
+HlkUartLd2401::HlkUartLd2401() {
+}
+
+void HlkUartLd2401::begin(HardwareSerial& serial) {
+    _serial = &serial;
+    _serial -> begin(DEFAULT_BAUD);
+}
+
+int16_t HlkUartLd2401::transmit() {
+    _serial -> println("LD2401");
+    return NO_ERROR;
+}
+{% endhighlight %} 
+  
+The test main.cpp used to check the serial decoding was modified to use the new library:    
+{% highlight cpp %}
+#include "HlkUartLd2401.h"
+
+#define RXD2 16
+#define TXD2 17
+
+HardwareSerial HLK_UART(2);
+HlkUartLd2401 LD2401;
+
+void setup() {
+  LD2401.begin(HLK_UART);
+}
+
+void loop() {
+  LD2401.transmit();
+  delay(1000);
+}
+{% endhighlight %} 
+  
+The ESP32 was programmed and the TX2 pin was probed to verify the expected output:  
+![Image]({{"assets/images/mmWave/DS1Z-Test-library.png",  | relative_url }}) 
+
+## LD2401C UART Communication  
+  
+The UART Rx and Tx are broken out on pins 1 and 2 of the module:  
+![Image]({{"assets/images/mmWave/HLK-LD2401-pin-definitions.jpg",  | relative_url }}) 
+  
+The UART protocol for the mmWave radar is defined in the document: 
+https://naylampmechatronics.com/img/cms/001080/Protocolo_comunicacion_serial_LD2410C.pdf  
+
+The LD2401C module IO output level is 3.3V.   
+By default the baud rate is set 256000, with 1 stop bit and no parity bit.  
+Data is send little-endian, and documented in hexadecimal.   
+  
+The UART serial TTL port can be used to configure the device, enabling modification of values such as:  
+ - The farthest detection distance  
+ - Sensitivity   
+ - "no-one duration"  
+ - Bluetooth settings  
+
+The command and response data frames consist of the following parts:  
+ - A Frame header  (FD FC FB FA)
+ - Intra-frame data length  
+ - Intra-frame data  
+ - End of Frame  (04 03 02 01)
+  
+The data included in each frame consists of two parts:  
+ - the Command Word (2 bytes)
+ - the Command Value (N bytes, specified in the Intra-frame data length part)
+
+The frame Header and End are consistent amongst all commands in order to differentiate the beginning and end of a frame.  
+   
+The received ACK data follows the same format.  
+  
+![Image]({{"assets/images/mmWave/LD2401-UART-Frame-description.jpg",  | relative_url }})   
+
+In order to change the radar settings the device must first be put in to configuration mode using the enable configuration command:    
+Command word: 0x00FF  
+Command value: 0x0001  
+  
+Once the settings have been changed the device must be returned to working mode by issuing the end configuration command:  
+Command word: 0x00FE  
+Command value: None  
+  
+The following flow chart demonstrates the steps that must be taken to properly configure the radar via UART:  
+![Image]({{"assets/images/mmWave/LD2401-radar-config-flow.jpg",  | relative_url }})   
+
+The various command words, values, and responses for individual settings can be viewed in the document linked above.  
