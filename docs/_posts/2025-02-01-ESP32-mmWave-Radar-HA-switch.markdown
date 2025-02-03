@@ -44,10 +44,8 @@ In order to test the UART transmit output and verify the scopes decode function 
 {% highlight cpp %}
 #define RX 16
 #define TX 17
-
 #define UART_BAUD 9600
 
-// Create an instance of the HardwareSerial class for Serial 2
 HardwareSerial HLK_UART(2);
 
 void setup() {
@@ -60,7 +58,7 @@ void loop() {
 }
 {% endhighlight %}
 
-The oscilloscope is set to RS232 decode under the "Math" menu with settings matching those in set in the FW enabling "Hello" to be read:  
+The oscilloscope is set to RS232 decode under the "Math" menu with settings matching those in set in the FW, enabling "Hello" to be read:  
 ![Image]({{"assets/images/mmWave/DS1Z-UART-Hello-Decode.png",  | relative_url }})   
   
 Using the Event Table allows for display of more bytes:  
@@ -70,7 +68,7 @@ This confirms that the UART transmits successfully and the decode function is wo
   
 ## Testing the LD2401C mmWave Radar Module  
 
-In order to test the LD2401C mmWave radar is functional the digital output was connected to the ESP32 GPIO13 pin. The LD2401C was powered from 5V supplied by the USB connection for the ESP32, accessible via the Vin pin on the dev kit.   
+In order to test the LD2401C mmWave radar is functional, the digital output was connected to the ESP32 GPIO13 pin. The LD2401C was powered from 5V supplied by the USB connection for the ESP32, accessible via the Vin pin on the dev kit.   
   
 Some simple code was written to turn on the Dev Kit's on board LED when GPIO5 reads a high output from the LD2401. In this way the functionality in the basic factory settings could be tested to confirm the module is working prior to proceeding further.  
   
@@ -102,7 +100,7 @@ The "no man duration" is the duration between when the radar no longer detects a
   
 ## Making a library in Platform IO    
   
-For libraries to compile and be included in the build using Platform IO, the source code of each library should be placed in its own separate directory
+For libraries to be compiled and included in the build using Platform IO, the source code of each library should be placed in its own separate directory
 ("lib/your_library_name/[here are source files]").  
 In this case the following structure was used:  
 |--lib  
@@ -110,7 +108,7 @@ In this case the following structure was used:
 |--|--|--HlkUartLd2401.h  
 |--|--|--HlkUartLd2401.cpp  
   
-A much simplified version of a library was created in order to confirm the structure was correct, it could be successfully built, and the serial communication was working. The library takes a HardwareSerial instance and transmits "LD2401".  
+A much simplified version of a library was created in order to confirm the structure was correct, it could be successfully built, and the serial communication was working. The library takes a HardwareSerial instance and transmits "LD2401" over the ESP32 UART 2 port.  
 
 The .h file was as follows:  
 {% highlight cpp %}
@@ -190,8 +188,8 @@ The UART protocol for the mmWave radar is defined in the document:
 https://naylampmechatronics.com/img/cms/001080/Protocolo_comunicacion_serial_LD2410C.pdf  
 
 The LD2401C module IO output level is 3.3V.   
-By default the baud rate is set 256000, with 1 stop bit and no parity bit.  
-Data is send little-endian, and documented in hexadecimal.   
+By default the baud rate is set at 256000, with 1 stop bit and no parity bit.  
+Data is sent little-endian, and documented in hexadecimal.   
   
 The UART serial TTL port can be used to configure the device, enabling modification of values such as:  
  - The farthest detection distance  
@@ -199,7 +197,7 @@ The UART serial TTL port can be used to configure the device, enabling modificat
  - "no-one duration"  
  - Bluetooth settings  
 
-The command and response data frames consist of the following parts:  
+The command and response data frames consist of the following four parts:  
  - A Frame header  (FD FC FB FA)
  - Intra-frame data length  
  - Intra-frame data  
@@ -209,9 +207,9 @@ The data included in each frame consists of two parts:
  - the Command Word (2 bytes)
  - the Command Value (N bytes, specified in the Intra-frame data length part)
 
-The frame Header and End are consistent amongst all commands in order to differentiate the beginning and end of a frame.  
+The frame Header and End are consistent across all commands in order to differentiate the beginning and end of a frame.  
    
-The received ACK data follows the same format.  
+The received ACK data follows the same format except the Command Word is undergoes a bitwise or with the value 0x0100.   
   
 ![Image]({{"assets/images/mmWave/LD2401-UART-Frame-description.jpg",  | relative_url }})   
 
