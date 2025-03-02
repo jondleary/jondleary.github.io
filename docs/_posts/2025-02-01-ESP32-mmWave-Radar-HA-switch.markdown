@@ -209,7 +209,7 @@ The data included in each frame consists of two parts:
 
 The frame Header and End are consistent across all commands in order to differentiate the beginning and end of a frame.  
    
-The received ACK data follows the same format except the Command Word is undergoes a bitwise or with the value 0x0100.   
+The received ACK data follows the same format except the Command Word undergoes a bitwise OR with the value 0x0100.   
   
 ![Image]({{"assets/images/mmWave/LD2401-UART-Frame-description.jpg",  | relative_url }})   
 
